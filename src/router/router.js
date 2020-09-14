@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from "react-router-dom";
-import Home from "../pages/home/home";
-import Contact from "../pages/contact/contact";
+import Home from "../components/pages/home";
+import Contact from "../components/pages/contact";
 
 export default class Routers extends React.Component{
     render() {

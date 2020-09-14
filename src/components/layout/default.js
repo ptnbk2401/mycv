@@ -4,7 +4,7 @@ import './default.scss';
 import { Layout, Breadcrumb } from 'antd';
 
 import MenuComponent from "./menu/menu";
-import LogoComponent from "../components/logo/logo";
+import LogoComponent from "./logo";
 
 const { Header, Content, Footer, Sider } = Layout;
 
