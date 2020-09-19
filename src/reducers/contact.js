@@ -1,10 +1,19 @@
 const PAGE_NAME = 'CONTACT';
 
-export const actionGetName = page => ({
-    name: PAGE_NAME,
-    url: page.url,
-});
+const initState = {
+    list: [],
+    type: PAGE_NAME,
+    name: 'Contact',
+    page: 'Contact'
+}
 
-export const reducer = (state = [], action) => {
-    return action.name === PAGE_NAME ? state : false;
+const reducer = (state = initState, action) => {
+    switch (action.type) {
+        case PAGE_NAME:
+            return state;
+        default:
+            return state
+    }
 };
+
+export default reducer

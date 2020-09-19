@@ -1,8 +1,8 @@
-import * as home from './home';
-import * as contact from './contact';
+import HomeReducer from './home';
+import ContactReducer from './contact';
 import {combineReducers} from "redux";
 
 export default combineReducers({
-    home,
-    contact
+    home: HomeReducer,
+    contact: ContactReducer
 });

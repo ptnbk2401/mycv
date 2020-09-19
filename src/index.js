@@ -4,16 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'antd/dist/antd.css';
-import {createStore} from 'redux'
 import {Provider} from 'react-redux'
-import rootReducer from './reducers'
+import store from './store'
 
-const store = createStore(rootReducer);
 ReactDOM.render(
     <Provider store={store}>
-        <React.StrictMode>
+        {/*<React.StrictMode>*/}
             <App/>
-        </React.StrictMode>
+        {/*</React.StrictMode>*/}
     </Provider>,
     document.getElementById('root')
 );
