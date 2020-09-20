@@ -8964,3 +8964,30 @@
     .gardening-version .why-choose-us-content-area {
         padding: 50px 50px 20px;
     }
+
+    .react-modal .react-modal-body {
+        border-radius: 0;
+        width: 60%;
+        height: 100%;
+        min-height: 200px;
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: rgb(239, 239, 239);
+        overflow-y: auto;
+        z-index: 9999;
+        opacity: 1;
+    }
+
+    .react-modal .react-modal-body-close {
+        transition: all 0.35s ease-in-out;
+    }
+
+    .react-modal .react-modal-body-close:hover {
+        transform: rotate(180deg);
+    }
+
+    .react-modal .react-modal-body-close:hover::before,.react-modal-body-close:hover::after {
+        background: #f39c12;
+    }

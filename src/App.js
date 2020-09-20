@@ -1,18 +1,15 @@
 import React from 'react';
 import './App.css';
-import LayoutComponent from "./components/layout/default";
-import Routers from "./router/router";
 import {
     BrowserRouter as Router
 } from "react-router-dom";
 import history from './services/history'
+import Mycv from "./pages/mycv/mycv";
 
 function App() {
   return (
       <Router history={history}>
-          <LayoutComponent>
-            <Routers />
-          </LayoutComponent>
+        <Mycv />
       </Router>
   );
 }

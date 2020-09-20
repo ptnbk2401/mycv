@@ -1,20 +1,23 @@
 import React, {useState} from 'react'
 import Modal from 'react-animated-modal';
-import './skills.scss'
+import './contact.scss'
+import randomNumber from "../../../../services/randomNumber";
 
-function Skills() {
+function Contact(props) {
+    const { types } = props;
     const [showModel, setShowModel] = useState(false);
+    const style = types[randomNumber(types)];
 
     return (
         <div>
-            <div className="skills_area resume_single_part text-center"
-                 style={{backgroundImage: 'url(img/bg-img/resume-bg-3.jpg)'}}>
-                <a id="skills" onClick={() => setShowModel(true)}>
+            <div className="contact_area resume_single_part text-center"
+                 style={{backgroundImage: 'url(img/bg-img/resume-bg-5.jpg)'}}>
+                <a id="contact" onClick={() => setShowModel(true)}>
                     <div className="classy-table">
                         <div className="classy-table-cell">
                             <div className="resume_single_part_text">
-                                <i className="ion-wrench" aria-hidden="true"/>
-                                <h3>Skills</h3>
+                                <i className="ion-android-mail" aria-hidden="true"/>
+                                <h3>Contact</h3>
                             </div>
                         </div>
                     </div>
@@ -24,154 +27,100 @@ function Skills() {
             <Modal
                 visible={showModel}
                 closemodal={() => setShowModel(false)}
-                type="fadeInRight"
+                type={style}
             >
-                {/* Skills Content Area Start */}
-                <div id="skills-animatedModal" className="resume_version">
-                    {/* Skill Content Area Start */}
-                    <div className="skills-content">
+                <div id="contact-animatedModal" className="resume_version">
+                    <div className="contact-content">
                         <div className="container-fluid">
                             <div className="row">
                                 <div className="col-12">
-                                    {/* Work History Timeline Area Start */}
-                                    {/* Title */}
-                                    <div className="work_history_timeline_title">
-                                        <h3>Work Experience</h3>
-                                    </div>
-                                    <div className="history_timeline_area">
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block even-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true" />
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>Senior Front-end Developer</h4>
-                                                <h5>Designing World (2016 - 2017)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure, commodi doloribus architecto.</p>
+                                    <div className="row">
+                                        {/* Single Contact Info Area Start */}
+                                        <div className="col-12 col-lg-4">
+                                            <div className="single_contact_info item">
+                                                <i className="ion-android-pin" aria-hidden="true" />
+                                                <h4>Address</h4>
+                                                <p>Road No - 14, House No - 03,
+                                                    <br /> Melbourne, Australia</p>
                                             </div>
                                         </div>
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block odd-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true" />
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>UX/UI Designer</h4>
-                                                <h5>Designing World (2015 - 2017)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure, commodi doloribus architecto.</p>
+                                        {/* Single Contact Info Area Start */}
+                                        <div className="col-12 col-lg-4">
+                                            <div className="single_contact_info item">
+                                                <i className="ion-android-call" aria-hidden="true" />
+                                                <h4>Call</h4>
+                                                <p>+61 258 014 321
+                                                    <br /> +61 001 741 21</p>
                                             </div>
                                         </div>
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block even-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true" />
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>Trainer</h4>
-                                                <h5>Nazrul High School &amp; College (2009)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure, commodi doloribus architecto.</p>
-                                            </div>
-                                        </div>
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block odd-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true" />
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>Trainer (Basic )</h4>
-                                                <h5>Mukit Memorial School (2007)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure, commodi doloribus architecto.</p>
+                                        {/* Single Contact Info Area Start */}
+                                        <div className="col-12 col-lg-4">
+                                            <div className="single_contact_info item">
+                                                <i className="ion-android-drafts" aria-hidden="true" />
+                                                <h4>Mail</h4>
+                                                <p>care@one.com,
+                                                    <br /> info@one.com</p>
                                             </div>
                                         </div>
                                     </div>
-                                    {/* Work Skill Progress Bar Area Start */}
-                                    <div className="progress_bar_area_title">
-                                        <h3>Some Passion</h3>
+                                </div>
+                                <div className="col-12">
+                                    <div className="contact_title">
+                                        <h3>Get Touch with Us</h3>
                                     </div>
-                                    {/* Progress Bar Content Area */}
-                                    <div className="progress_bar_content">
-                                        <div className="row">
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar1" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
+                                    <div className="contact_from">
+                                        <form action="http://demo.designing-world.com/classy-baao/classy-onepage/mail.php" method="post" id="main_contact_form">
+                                            {/* Message Input Area Start */}
+                                            <div className="contact_input_area">
+                                                <div id="success_fail_info" />
+                                                <div className="row">
+                                                    {/* Single Input Area Start */}
+                                                    <div className="col-md-6 col-12">
+                                                        <div className="form-group">
+                                                            <input type="text" className="form-control" name="name" id="name" placeholder="Your Name" required />
                                                         </div>
-                                                        <span className="fill" data-percentage={100} />
                                                     </div>
-                                                    <h4>HTML</h4>
+                                                    {/* Single Input Area Start */}
+                                                    <div className="col-md-6 col-12">
+                                                        <div className="form-group">
+                                                            <input type="email" className="form-control" name="email" id="email" placeholder="Your E-mail" required />
+                                                        </div>
+                                                    </div>
+                                                    {/* Single Input Area Start */}
+                                                    <div className="col-md-6 col-12">
+                                                        <div className="form-group">
+                                                            <input type="text" className="form-control" name="subject" id="subject" placeholder="Your Subject" required />
+                                                        </div>
+                                                    </div>
+                                                    {/* Single Input Area Start */}
+                                                    <div className="col-md-6 col-12">
+                                                        <div className="form-group">
+                                                            <input type="text" className="form-control" name="number" id="number" placeholder="Your Number *" required />
+                                                        </div>
+                                                    </div>
+                                                    {/* Single Input Area Start */}
+                                                    <div className="col-12">
+                                                        <div className="form-group">
+                                                            <textarea name="message" className="form-control" id="message" cols={30} rows={10} placeholder="Your Message *" required defaultValue={""} />
+                                                        </div>
+                                                    </div>
+                                                    {/* Single Input Area Start */}
+                                                    <div className="col-12">
+                                                        <button type="submit" className="btn default-button">SEND MESSAGE</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar2" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={94} />
-                                                    </div>
-                                                    <h4>CSS</h4>
-                                                </div>
-                                            </div>
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar3" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={72} />
-                                                    </div>
-                                                    <h4>JS</h4>
-                                                </div>
-                                            </div>
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar4" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={87} />
-                                                    </div>
-                                                    <h4>PHP</h4>
-                                                </div>
-                                            </div>
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar5" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={91} />
-                                                    </div>
-                                                    <h4>WordPress</h4>
-                                                </div>
-                                            </div>
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar6" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={65} />
-                                                    </div>
-                                                    <h4>Joomla</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* Download Full Resume Area Start */}
-                                    <div className="download_full_resume">
-                                        <a href="dummy-data/worksheet.pdf" download>Download Resume</a>
+                                            {/* Message Input Area End */}
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    {/* Google Maps Area */}
+                    <div className="map_contact_address_area">
+                        {/* Map Area Start */}
+                        <div className="map_area" id="googleMap" />
                     </div>
                 </div>
             </Modal>
@@ -179,4 +128,4 @@ function Skills() {
     )
 }
 
-export default Skills
+export default Contact

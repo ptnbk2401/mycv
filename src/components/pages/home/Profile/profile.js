@@ -1,102 +1,34 @@
 import React, {useState} from 'react'
 import Modal from 'react-animated-modal';
-import './mycv.scss'
+import './profile.scss'
+import randomNumber from "../../../../services/randomNumber";
 
-function Mycv() {
+function Profile(props) {
+    const { types } = props;
     const [showModel, setShowModel] = useState(false);
+    const style = types[randomNumber(types)];
 
     return (
         <div>
-            {/* Preloader Start */}
-            <div id="preloader">
-                <div className="classy-load"/>
-            </div>
-            <div className="welcome_area resume_version" id="home_page">
-                {/* Introduction Area Start */}
-                <div className="introduction_area text-center background-overlay"
-                     style={{backgroundImage: 'url(img/bg-img/resume-bg-1.jpg)'}}>
+            {/* Profile Navigation Area Start */}
+            <div className="profile_area resume_single_part text-center"
+                 style={{backgroundImage: 'url(img/bg-img/resume-bg-2.jpg)'}}>
+                <a id="profile" onClick={() => setShowModel(true)}>
                     <div className="classy-table">
                         <div className="classy-table-cell">
-                            <div className="introduction_text_area">
-                                <div className="logo"/>
-                                <h2>I'm Nazrul Islam</h2>
-                                <p>And I'm a Senior Front-end Developer</p>
-                                {/* Social Icon Area Start */}
-                                <div className="resume_social_icon">
-                                    <a href="#"><i className="ion-social-facebook-outline"/></a>
-                                    <a href="#"><i className="ion-social-twitter-outline"/></a>
-                                    <a href="#"><i className="ion-social-googleplus-outline"/></a>
-                                    <a href="#"><i className="ion-social-instagram-outline"/></a>
-                                    <a href="#"><i className="ion-social-youtube-outline"/></a>
-                                </div>
+                            <div className="resume_single_part_text">
+                                <i className="ion-person" aria-hidden="true"/>
+                                <h3>Profile</h3>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="resume_content_navigation_area">
-                    {/* Profile Navigation Area Start */}
-                    <div className="profile_area resume_single_part text-center"
-                         style={{backgroundImage: 'url(img/bg-img/resume-bg-2.jpg)'}}>
-                        <a id="profile" href="#profile-animatedModal" onClick={() => setShowModel(true)}>
-                            <div className="classy-table">
-                                <div className="classy-table-cell">
-                                    <div className="resume_single_part_text">
-                                        <i className="ion-person" aria-hidden="true"/>
-                                        <h3>Profile</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    {/* Skills Navigation Area Start */}
-                    <div className="skills_area resume_single_part text-center"
-                         style={{backgroundImage: 'url(img/bg-img/resume-bg-3.jpg)'}}>
-                        <a id="skills" href="#skills-animatedModal">
-                            <div className="classy-table">
-                                <div className="classy-table-cell">
-                                    <div className="resume_single_part_text">
-                                        <i className="ion-wrench" aria-hidden="true"/>
-                                        <h3>Skills</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    {/* Portfolio Navigation Area Start */}
-                    <div className="portfolio_area resume_single_part text-center"
-                         style={{backgroundImage: 'url(img/bg-img/resume-bg-4.jpg)'}}>
-                        <a id="portfolio" href="#portfolio-animatedModal">
-                            <div className="classy-table">
-                                <div className="classy-table-cell">
-                                    <div className="resume_single_part_text">
-                                        <i className="ion-images" aria-hidden="true"/>
-                                        <h3>Portfolio</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    {/* Contact Navigation Area Start */}
-                    <div className="contact_area resume_single_part text-center"
-                         style={{backgroundImage: 'url(img/bg-img/resume-bg-5.jpg)'}}>
-                        <a id="contact" href="#contact-animatedModal">
-                            <div className="classy-table">
-                                <div className="classy-table-cell">
-                                    <div className="resume_single_part_text">
-                                        <i className="ion-android-mail" aria-hidden="true"/>
-                                        <h3>Contact</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                </a>
             </div>
             {/* Profile Content Area Start */}
             <Modal
                 visible={showModel}
                 closemodal={() => setShowModel(false)}
-                type="fadeInRight"
+                type={style}
             >
                 <div id="profile-animatedModal" className="resume_version">
                     {/*THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" */}
@@ -240,9 +172,8 @@ function Mycv() {
                     </div>
                 </div>
             </Modal>
-
         </div>
     )
 }
 
-export default Mycv
+export default Profile
