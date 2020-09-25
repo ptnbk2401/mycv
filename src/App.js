@@ -4,7 +4,7 @@ import {
     BrowserRouter as Router
 } from "react-router-dom";
 import history from './services/history'
-import Mycv from "./pages/mycv/mycv";
+import Mycv from "./features/home/pages/index";
 
 function App() {
   return (
