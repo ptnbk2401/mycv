@@ -1,9 +1,7 @@
-import React, {Suspense, useEffect} from 'react'
-import './index.scss'
-import Introduction from '../../components/Introduction/introduction'
-import { useDispatch } from 'react-redux';
-import homeApi from '../../../../api/homeApi';
-import { setIntroduction } from '../../introductionSlice';
+import React, {Suspense, useEffect, useState} from 'react'
+import './mycv.scss'
+import Introduction from "../../components/pages/home/Introduction/introduction";
+import Axios from 'axios';
 
 const types = ["bounceIn", "bounceInDown", "bounceInLeft", "bounceInRight", "bounceInUp",
     "fadeIn", "fadeInDown", "fadeInLeft", "fadeInRight", "fadeInUp", "flip", "flipInX", "flipInY", "lightSpeedIn", "rotateIn",
@@ -16,7 +14,41 @@ const Skills = React.lazy(() => import('../../components/Skills/skills'));
 const Contact = React.lazy(() => import('../../components/Contact/contact'));
 
 function Mycv() {
+    const [cvDetail, setCvDetail] = useState([]);
+    const [introduction, setIntroduction] = useState([]);
+    const [profile, setProfile] = useState([]);
+    const [skills, setSkills] = useState([]);
+    const [projects, setProjects] = useState([]);
+    const [contact, setContact] = useState([]);
+
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        async function fetchData() {
+            const response  = await Axios.get(`http://192.168.68.203:8080/api/front/react/cv-detail`)
+            if (response && response.data && response.data.data) {
+                let detail = response.data.data;
+                setCvDetail(response.data.data);
+                if (detail.introduction) {
+                    setIntroduction(detail.introduction);
+                }
+                if (detail.profile) {
+                    setProfile(detail.profile);
+                }
+                if (detail.skill) {
+                    setSkills(detail.skill);
+                }
+                if (detail.projects) {
+                    setProjects(detail.projects);
+                }
+                if (detail.contact) {
+                    setContact(detail.contact);
+                }
+            }
+        }
+
+        fetchData()
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -29,23 +61,15 @@ function Mycv() {
     }, [])
 
     return (
-        <Suspense fallback={<div id="preloader">
-            <div className="classy-load"/>
-        </div>}>
-            {/* Preloader Start */}
-
+        <Suspense fallback={<div id="preloader"><div className="classy-load"/></div>}>
             <div className="welcome_area resume_version" id="home_page">
                 {/* Introduction Area Start */}
-                <Introduction/>
+                <Introduction introduction={introduction}/>
                 <div className="resume_content_navigation_area">
-                    {/* Profile Navigation Area Start */}
-                    <Profile types={types}/>
-                    {/* Skills Navigation Area Start */}
-                    <Skills types={types}/>
-                    {/* Portfolio Navigation Area Start */}
-                    <Portfolio types={types}/>
-                    {/* Contact Navigation Area Start */}
-                    <Contact types={types}/>
+                    <Profile profile={profile} types={types}/>
+                    <Skills skills={skills} types={types}/>
+                    <Portfolio projects={projects} types={types}/>
+                    <Contact contact={contact} types={types}/>
                 </div>
             </div>
         </Suspense>
