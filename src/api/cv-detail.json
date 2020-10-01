@@ -1,0 +1,181 @@
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "introduction": {
+      "avatar": "https://images.unsplash.com/photo-1601403607678-6d6515e458ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80",
+      "fullname": "Phan Thanh Nguyen",
+      "description": "And I'm a Junior Website Developer",
+      "socials": {
+        "facebook": "https:\/\/fb.com\/ntp",
+        "twitter": "https:\/\/fb.com\/ntp",
+        "googleplus": "https:\/\/fb.com\/ntp",
+        "instagram": "https:\/\/fb.com\/ntp",
+        "youtube": "https:\/\/fb.com\/ntp"
+      }
+    },
+    "profile": {
+      "storyOfGlory": {
+        "text": "Constantly learning to cultivate knowledge about programming to develop professional skills. In the next 1 year, I will become a professional programmer.",
+        "age": "24",
+        "address": "\u0110\u00e0 N\u1eb5ng, Vi\u1ec7t Nam",
+        "email": "nguyenpt@rikkeisoft.com",
+        "phone": "+84 373099406"
+      },
+      "whatIDo": {
+        "design": {
+          "title": "UX\/UI Design",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+        },
+        "webDevelopment": {
+          "title": "Web Development",
+          "description": "Handle Backend and Frontend, Writing Api of application, Git flow, working with interface design basic, has experience working on converting PSD to HTML\/CSS\/JS."
+        }
+      },
+      "education": [
+        {
+          "sort_order": "1",
+          "name": "Bachelor of Science Degree",
+          "time": "2012 - 2016",
+          "address": "National University",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure"
+        },
+        {
+          "sort_order": "2",
+          "name": "Bachelor of Science Degree",
+          "time": "2012 - 2016",
+          "address": "National University",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure"
+        },
+        {
+          "sort_order": "3",
+          "name": "Bachelor of Science Degree",
+          "time": "2012 - 2016",
+          "address": "National University",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure"
+        },
+        {
+          "sort_order": "4",
+          "name": "Bachelor of Science Degree",
+          "time": "2012 - 2016",
+          "address": "National University",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure"
+        }
+      ]
+    },
+    "skill": {
+      "workExperience": [
+        {
+          "sort_order": "1",
+          "name": "Senior Front-end Developer",
+          "time": "2012 - 2016",
+          "address": "Designing World",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure"
+        },
+        {
+          "sort_order": "1",
+          "name": "Senior Front-end Developer",
+          "time": "2012 - 2016",
+          "address": "Designing World",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure"
+        },
+        {
+          "sort_order": "1",
+          "name": "Senior Front-end Developer",
+          "time": "2012 - 2016",
+          "address": "Designing World",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure"
+        },
+        {
+          "sort_order": "1",
+          "name": "Senior Front-end Developer",
+          "time": "2012 - 2016",
+          "address": "Designing World",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure"
+        }
+      ],
+      "skills": [
+        {
+          "name": "HTML",
+          "value": "96"
+        },
+        {
+          "name": "CSS",
+          "value": "95"
+        },
+        {
+          "name": "Javascript",
+          "value": "90"
+        },
+        {
+          "name": "PHP",
+          "value": "90"
+        },
+        {
+          "name": "Laravel\/Lumen",
+          "value": "85"
+        },
+        {
+          "name": "FuelPHP",
+          "value": "60"
+        },
+        {
+          "name": "Jquery",
+          "value": "80"
+        },
+        {
+          "name": "Vuejs",
+          "value": "75"
+        },
+        {
+          "name": "Angular 8",
+          "value": "60"
+        },
+        {
+          "name": "ReactJs",
+          "value": "55"
+        }
+      ]
+    },
+    "projects": [
+      {
+        "type": "design",
+        "name": "Creative Work",
+        "technology": "Laravel\/Vuejs",
+        "image": "https://images.unsplash.com/photo-1590098563575-a82d9dcd7696?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=500&q=80"
+      },
+      {
+        "type": "web",
+        "name": "Creative Work",
+        "technology": "Laravel\/Vuejs",
+        "image": "https://images.unsplash.com/photo-1600009710631-5baaaaf50754?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=500&q=80"
+      },
+      {
+        "type": "web",
+        "name": "Creative Work",
+        "technology": "Laravel\/Vuejs",
+        "image": "https://images.unsplash.com/photo-1587579802360-b4d19487379b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=500&q=80"
+      },
+      {
+        "type": "web",
+        "name": "Creative Work",
+        "technology": "Laravel\/Vuejs",
+        "image": "https://images.unsplash.com/1/irish-hands.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=500&q=90"
+      },
+      {
+        "type": "web",
+        "name": "Creative Work",
+        "technology": "Laravel\/Vuejs",
+        "image": "https://images.unsplash.com/photo-1566765403633-56d1e9f245ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&h=500&q=90"
+      }
+    ],
+    "contact": {
+      "address": "81 Quang Trung, Hải Châu, Đà Nẵng",
+      "call": "+84 373099406",
+      "mail": [
+        "ptnbk2401@gmail.com",
+        "nguyenpt@rikkeisoft.com"
+      ]
+    }
+  }
+}
