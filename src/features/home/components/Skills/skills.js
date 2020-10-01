@@ -2,11 +2,41 @@ import React, {useState} from 'react'
 import Modal from 'react-animated-modal';
 import './skills.scss'
 import randomNumber from "../../../../services/randomNumber";
+import { Line } from 'rc-progress';
+import {useSelector} from "react-redux";
 
 function Skills(props) {
     const { types } = props;
     const [showModel, setShowModel] = useState(false);
+    const [colorMap, setColorMap] = useState(['#3FC7FA', '#85D262', '#FE4365', '#45ADA8', '#F9D423', '#F26B38', '#2F9599', '#A7226E', '#E84A5F', '#A8E6CE', '#DCEDC2', '#FFD3B5', '#FFAAA6', '#FF8C94']);
     const style = types[randomNumber(types)];
+    const skill = useSelector(state => state.skill);
+
+    const workExperience = (
+        skill.workExperience && skill.workExperience.map( (item, index) => {
+            return <div key={index} className={`single_timeline_block ${index % 2 ? 'odd' : 'even' }-item clearfix`}>
+                <div className="timeline_icon">
+                    <i className="ion-university" aria-hidden="true"/>
+                </div>
+                <div className="timeline_text_content">
+                    <h4>{item.name}</h4>
+                    <h5>{item.address} ({item.time})</h5>
+                    <p>{item.description}</p>
+                </div>
+            </div>
+        })
+    );
+
+    const itemSkill = (
+        skill.skills && skill.skills.map((item, index) => {
+            return <div key={index} className="col-12 col-lg-6">
+                <div className="single_progress_bar">
+                    <Line className="barfiller" percent={item.value} strokeWidth="2" strokeColor={colorMap[index]} />
+                    <h4>{item.name}</h4>
+                </div>
+            </div>
+        })
+    );
 
     return (
         <div>
@@ -42,50 +72,7 @@ function Skills(props) {
                                         <h3>Work Experience</h3>
                                     </div>
                                     <div className="history_timeline_area">
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block even-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true" />
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>Senior Front-end Developer</h4>
-                                                <h5>Designing World (2016 - 2017)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure, commodi doloribus architecto.</p>
-                                            </div>
-                                        </div>
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block odd-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true" />
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>UX/UI Designer</h4>
-                                                <h5>Designing World (2015 - 2017)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure, commodi doloribus architecto.</p>
-                                            </div>
-                                        </div>
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block even-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true" />
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>Trainer</h4>
-                                                <h5>Nazrul High School &amp; College (2009)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure, commodi doloribus architecto.</p>
-                                            </div>
-                                        </div>
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block odd-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true" />
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>Trainer (Basic )</h4>
-                                                <h5>Mukit Memorial School (2007)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt numquam fugiat, vitae facere. Provident odio saepe iure, commodi doloribus architecto.</p>
-                                            </div>
-                                        </div>
+                                        {workExperience}
                                     </div>
                                     {/* Work Skill Progress Bar Area Start */}
                                     <div className="progress_bar_area_title">
@@ -94,83 +81,8 @@ function Skills(props) {
                                     {/* Progress Bar Content Area */}
                                     <div className="progress_bar_content">
                                         <div className="row">
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar1" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={100} />
-                                                    </div>
-                                                    <h4>HTML</h4>
-                                                </div>
-                                            </div>
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar2" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={94} />
-                                                    </div>
-                                                    <h4>CSS</h4>
-                                                </div>
-                                            </div>
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar3" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={72} />
-                                                    </div>
-                                                    <h4>JS</h4>
-                                                </div>
-                                            </div>
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar4" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={87} />
-                                                    </div>
-                                                    <h4>PHP</h4>
-                                                </div>
-                                            </div>
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar5" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={91} />
-                                                    </div>
-                                                    <h4>WordPress</h4>
-                                                </div>
-                                            </div>
-                                            {/* Single Progress Bar */}
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_progress_bar">
-                                                    <div id="bar6" className="barfiller">
-                                                        <div className="tipWrap">
-                                                            <span className="tip" />
-                                                        </div>
-                                                        <span className="fill" data-percentage={65} />
-                                                    </div>
-                                                    <h4>Joomla</h4>
-                                                </div>
-                                            </div>
+                                            {itemSkill}
                                         </div>
-                                    </div>
-                                    {/* Download Full Resume Area Start */}
-                                    <div className="download_full_resume">
-                                        <a href="dummy-data/worksheet.pdf" download>Download Resume</a>
                                     </div>
                                 </div>
                             </div>

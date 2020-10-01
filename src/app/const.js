@@ -1,7 +1,6 @@
-import avatar from '../assets/avt.jpg'
 
 const CONST = {
-    link_avatar: avatar
-}
+    APP_URL: process.env.REACT_APP_API_URL
+};
 
 export default CONST

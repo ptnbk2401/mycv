@@ -9,7 +9,7 @@ function Introduction(props) {
         Object.keys(introduction.socials).map((social, index) => {
             return <a key={index} href={introduction.socials[social]} target="_blank"><i className={`ion-social-${social}-outline`}/></a>
         })
-    )
+    );
     return (
         <div className="introduction_area text-center background-overlay"
              style={{backgroundImage: `url(${introduction.avatar})`}}>

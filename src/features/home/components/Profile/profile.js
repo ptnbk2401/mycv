@@ -2,11 +2,29 @@ import React, {useState} from 'react'
 import Modal from 'react-animated-modal';
 import './profile.scss'
 import randomNumber from "../../../../services/randomNumber";
+import {useSelector} from "react-redux";
 
 function Profile(props) {
     const { types } = props;
     const [showModel, setShowModel] = useState(false);
     const style = types[randomNumber(types)];
+
+    const profile = useSelector(state => state.profile);
+
+    const education = (
+        profile.education && profile.education.map( (item, index) => {
+            return <div key={index} className={`single_timeline_block ${index % 2 ? 'odd' : 'even' }-item clearfix`}>
+                <div className="timeline_icon">
+                    <i className="ion-university" aria-hidden="true"/>
+                </div>
+                <div className="timeline_text_content">
+                    <h4>{item.name}</h4>
+                    <h5>{item.address} ({item.time})</h5>
+                    <p>{item.description}</p>
+                </div>
+            </div>
+        })
+    );
 
     return (
         <div>
@@ -43,14 +61,11 @@ function Profile(props) {
                                         </div>
                                         <div className="about_me_text">
                                             <h3>Story of Glory</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, ab,
-                                                neque. Ullam id consequuntur expedita ipsam quibusdam blanditiis eius
-                                                deleniti sint eaque recusandae ea tempore, obcaecati libero laborum
-                                                soluta dolorem.</p>
-                                            <h5><span>Age</span>25</h5>
-                                            <h5><span>Address</span>Melbourbe, Australia</h5>
-                                            <h5><span>Email</span>care@classy.com</h5>
-                                            <h5><span>Phone</span>+61 089 1574</h5>
+                                            <p>{profile.storyOfGlory.text}</p>
+                                            <h5><span>Age</span>{profile.storyOfGlory.age}</h5>
+                                            <h5><span>Address</span>{profile.storyOfGlory.address}</h5>
+                                            <h5><span>Email</span>{profile.storyOfGlory.email}</h5>
+                                            <h5><span>Phone</span>{profile.storyOfGlory.phone}</h5>
                                         </div>
                                     </div>
                                     {/* What I do Area Start */}
@@ -64,41 +79,15 @@ function Profile(props) {
                                             <div className="col-12 col-lg-6">
                                                 <div className="single_what_i_do">
                                                     <i className="ion-android-color-palette" aria-hidden="true"/>
-                                                    <h3>UX/UI Design</h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-                                                        natus nemo delectus fugiat illo, minima dolores fuga praesentium
-                                                        commodi porro officiis impedit quibusdam nostrum culpa rerum
-                                                        autem ipsam, adipisci quam.</p>
+                                                    <h3>{profile.whatIDo.design && profile.whatIDo.design.title}</h3>
+                                                    <p>{profile.whatIDo.design && profile.whatIDo.design.description}</p>
                                                 </div>
                                             </div>
                                             <div className="col-12 col-lg-6">
                                                 <div className="single_what_i_do">
                                                     <i className="ion-code" aria-hidden="true"/>
-                                                    <h3>Web Development</h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-                                                        natus nemo delectus fugiat illo, minima dolores fuga praesentium
-                                                        commodi porro officiis impedit quibusdam nostrum culpa rerum
-                                                        autem ipsam, adipisci quam.</p>
-                                                </div>
-                                            </div>
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_what_i_do">
-                                                    <i className="ion-easel" aria-hidden="true"/>
-                                                    <h3>Infographic Design</h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-                                                        natus nemo delectus fugiat illo, minima dolores fuga praesentium
-                                                        commodi porro officiis impedit quibusdam nostrum culpa rerum
-                                                        autem ipsam, adipisci quam.</p>
-                                                </div>
-                                            </div>
-                                            <div className="col-12 col-lg-6">
-                                                <div className="single_what_i_do">
-                                                    <i className="ion-android-phone-landscape" aria-hidden="true"/>
-                                                    <h3>App Development</h3>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-                                                        natus nemo delectus fugiat illo, minima dolores fuga praesentium
-                                                        commodi porro officiis impedit quibusdam nostrum culpa rerum
-                                                        autem ipsam, adipisci quam.</p>
+                                                    <h3>{profile.whatIDo.webDevelopment && profile.whatIDo.webDevelopment.title}</h3>
+                                                    <p>{profile.whatIDo.webDevelopment && profile.whatIDo.webDevelopment.description}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -109,62 +98,7 @@ function Profile(props) {
                                         <h3>Education</h3>
                                     </div>
                                     <div className="history_timeline_area">
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block even-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true"/>
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>Bachelor of Science Degree</h4>
-                                                <h5>National University (2012 - 2016)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-                                                    numquam fugiat, vitae facere. Provident odio saepe iure, commodi
-                                                    doloribus architecto.</p>
-                                            </div>
-                                        </div>
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block odd-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true"/>
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>Computer Science and Engineering</h4>
-                                                <h5>Own University (2010 - 2014)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-                                                    numquam fugiat, vitae facere. Provident odio saepe iure, commodi
-                                                    doloribus architecto.</p>
-                                            </div>
-                                        </div>
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block even-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true"/>
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>Higher Secondary</h4>
-                                                <h5>Nazrul High School &amp; College (2009)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-                                                    numquam fugiat, vitae facere. Provident odio saepe iure, commodi
-                                                    doloribus architecto.</p>
-                                            </div>
-                                        </div>
-                                        {/* Single Timeline Area Start */}
-                                        <div className="single_timeline_block odd-item clearfix">
-                                            <div className="timeline_icon">
-                                                <i className="ion-university" aria-hidden="true"/>
-                                            </div>
-                                            <div className="timeline_text_content">
-                                                <h4>Secondary (SSC)</h4>
-                                                <h5>Mukit Memorial School (2007)</h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt
-                                                    numquam fugiat, vitae facere. Provident odio saepe iure, commodi
-                                                    doloribus architecto.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* Download Full Resume Area Start */}
-                                    <div className="download_full_resume">
-                                        <a href="dummy-data/worksheet.pdf" download>Download Resume</a>
+                                        {education}
                                     </div>
                                 </div>
                             </div>

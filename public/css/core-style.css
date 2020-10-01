@@ -6207,6 +6207,10 @@
         top: 30px;
         width: calc(50% - 60px);
         z-index: 2;
+        height: calc(100% - 60px);
+    }
+    .resume_version .about_me_img img {
+        max-height: 100%;
     }
 
     .resume_version .about_me_text > h3 {
@@ -8982,6 +8986,7 @@
 
     .react-modal .react-modal-body-close {
         transition: all 0.35s ease-in-out;
+        z-index: 999;
     }
 
     .react-modal .react-modal-body-close:hover {

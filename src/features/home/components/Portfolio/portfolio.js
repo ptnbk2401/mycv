@@ -1,12 +1,61 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Modal from 'react-animated-modal';
 import './portfolio.scss'
 import randomNumber from "../../../../services/randomNumber";
+import {useSelector} from "react-redux";
 
 function Portfolio(props) {
     const { types } = props;
     const [showModel, setShowModel] = useState(false);
+    const [menu, setMenu] = useState([]);
     const style = types[randomNumber(types)];
+    const listProject = useSelector(state => state.project);
+
+    const itemProject = (
+        listProject && listProject.list.map((item, index) => {
+            return <div key={index} className={`single_gallery_item ${item.type}`}>
+                <div className="single_resume_portfolio_area">
+                    <img src={item.image}/>
+                    {/* Single gallery Item hover caption */}
+                    <div className="hover_overlay">
+                        <div className="classy-table">
+                            <div className="classy-table-cell">
+                                <div className="gallery_info">
+                                    <h5>{item.name}</h5>
+                                    <p>{item.technology}</p>
+                                    <a className="btn btn-pill btn-sm btn-mat-orange" href="#">More Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        })
+    );
+
+    const itemMenu = (
+        menu.map((item, index) => {
+            return <button key={index} className="btn btn-md" type="button" data-filter={item.dataFilter}>{item.name}</button>
+        })
+    );
+
+    useEffect( () => {
+        setMenu([
+            {
+                dataFilter: '*',
+                name: 'all'
+            },
+            {
+                dataFilter: 'design',
+                name: 'Design'
+            },
+            {
+                dataFilter: 'web',
+                name: 'Website'
+            },
+        ])
+    }, []);
+
     return (
         <div>
             <div className="portfolio_area resume_single_part text-center"
@@ -38,162 +87,11 @@ function Portfolio(props) {
                                     </div>
                                     <div className="resume_portfolio_nav text-center gallery_menu">
                                         <div className="portfolio-menu">
-                                            <button className="active btn btn-md" type="button" data-filter="*">all</button>
-                                            <button className="btn btn-md" type="button" data-filter=".web">Design</button>
-                                            <button className="btn btn-md" type="button" data-filter=".art">Art</button>
-                                            <button className="btn btn-md" type="button" data-filter=".bra">Branding</button>
-                                            <button className="btn btn-md" type="button" data-filter=".app">App</button>
+                                            {itemMenu}
                                         </div>
                                     </div>
                                     <div className="gallery_full_width_images_area clearfix">
-                                        {/* Single gallery Item Start */}
-                                        <div className="single_gallery_item app">
-                                            <div className="single_resume_portfolio_area">
-                                                <img src="img/gallery/1.jpg" alt="" />
-                                                {/* Single gallery Item hover caption */}
-                                                <div className="hover_overlay">
-                                                    <div className="classy-table">
-                                                        <div className="classy-table-cell">
-                                                            <div className="gallery_info">
-                                                                <h5>Creative Work</h5>
-                                                                <p>Classy Business</p>
-                                                                <a className="btn btn-pill btn-sm btn-mat-orange" href="#">More Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* Single gallery Item Start */}
-                                        <div className="single_gallery_item art">
-                                            <div className="single_resume_portfolio_area">
-                                                <img src="img/gallery/2.jpg" alt="" />
-                                                {/* Single gallery Item hover caption */}
-                                                <div className="hover_overlay">
-                                                    <div className="classy-table">
-                                                        <div className="classy-table-cell">
-                                                            <div className="gallery_info">
-                                                                <h5>Creative Work</h5>
-                                                                <p>Classy Business</p>
-                                                                <a className="btn btn-pill btn-sm btn-mat-orange" href="#">More Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* Single gallery Item Start */}
-                                        <div className="single_gallery_item web">
-                                            <div className="single_resume_portfolio_area">
-                                                <img src="img/gallery/3.jpg" alt="" />
-                                                {/* Single gallery Item hover caption */}
-                                                <div className="hover_overlay">
-                                                    <div className="classy-table">
-                                                        <div className="classy-table-cell">
-                                                            <div className="gallery_info">
-                                                                <h5>Creative Work</h5>
-                                                                <p>Classy Business</p>
-                                                                <a className="btn btn-pill btn-sm btn-mat-orange" href="#">More Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* Single gallery Item Start */}
-                                        <div className="single_gallery_item bra">
-                                            <div className="single_resume_portfolio_area">
-                                                <img src="img/gallery/4.jpg" alt="" />
-                                                {/* Single gallery Item hover caption */}
-                                                <div className="hover_overlay">
-                                                    <div className="classy-table">
-                                                        <div className="classy-table-cell">
-                                                            <div className="gallery_info">
-                                                                <h5>Creative Work</h5>
-                                                                <p>Classy Business</p>
-                                                                <a className="btn btn-pill btn-sm btn-mat-orange" href="#">More Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* Single gallery Item Start */}
-                                        <div className="single_gallery_item bra">
-                                            <div className="single_resume_portfolio_area">
-                                                <img src="img/gallery/5.jpg" alt="" />
-                                                {/* Single gallery Item hover caption */}
-                                                <div className="hover_overlay">
-                                                    <div className="classy-table">
-                                                        <div className="classy-table-cell">
-                                                            <div className="gallery_info">
-                                                                <h5>Creative Work</h5>
-                                                                <p>Classy Business</p>
-                                                                <a className="btn btn-pill btn-sm btn-mat-orange" href="#">More Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* Single gallery Item Start */}
-                                        <div className="single_gallery_item bra">
-                                            <div className="single_resume_portfolio_area">
-                                                <img src="img/gallery/6.jpg" alt="" />
-                                                {/* Single gallery Item hover caption */}
-                                                <div className="hover_overlay">
-                                                    <div className="classy-table">
-                                                        <div className="classy-table-cell">
-                                                            <div className="gallery_info">
-                                                                <h5>Creative Work</h5>
-                                                                <p>Classy Business</p>
-                                                                <a className="btn btn-pill btn-sm btn-mat-orange" href="#">More Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* Single gallery Item Start */}
-                                        <div className="single_gallery_item bra">
-                                            <div className="single_resume_portfolio_area">
-                                                <img src="img/gallery/7.jpg" alt="" />
-                                                {/* Single gallery Item hover caption */}
-                                                <div className="hover_overlay">
-                                                    <div className="classy-table">
-                                                        <div className="classy-table-cell">
-                                                            <div className="gallery_info">
-                                                                <h5>Creative Work</h5>
-                                                                <p>Classy Business</p>
-                                                                <a className="btn btn-pill btn-sm btn-mat-orange" href="#">More Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* Single gallery Item Start */}
-                                        <div className="single_gallery_item bra">
-                                            <div className="single_resume_portfolio_area">
-                                                <img src="img/gallery/8.jpg" alt="" />
-                                                {/* Single gallery Item hover caption */}
-                                                <div className="hover_overlay">
-                                                    <div className="classy-table">
-                                                        <div className="classy-table-cell">
-                                                            <div className="gallery_info">
-                                                                <h5>Creative Work</h5>
-                                                                <p>Classy Business</p>
-                                                                <a className="btn btn-pill btn-sm btn-mat-orange" href="#">More Details</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* Download Full Resume Area Start */}
-                                    <div className="download_full_resume">
-                                        <a href="dummy-data/worksheet.pdf" download>Download Resume</a>
+                                        {itemProject}
                                     </div>
                                 </div>
                             </div>

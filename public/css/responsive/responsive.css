@@ -1829,3 +1829,8 @@
         width: 50%
     }
 }
+@media (max-width: 768px) {
+    .react-modal .react-modal-body {
+        width: 100%;
+    }
+}
